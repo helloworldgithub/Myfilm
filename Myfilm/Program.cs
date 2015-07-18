@@ -16,7 +16,7 @@ namespace Myfilm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegisterAndLogin());
+            Application.Run(new formLogin());
         }
     }
 }
