@@ -80,7 +80,11 @@ namespace Myfilm
                 MessageBox.Show("登录成功！");
                 this.Hide();
                 new MovieList(comboType.SelectedIndex).Show();
-
+                /*
+                Movie movie = new Movie();
+                movie.amount = 54;
+                new SeatsChooser(movie).Show();
+                */
             }
             else
             {
