@@ -301,7 +301,7 @@
             this.button.TabIndex = 33;
             this.button.Text = "编辑评论";
             this.button.UseVisualStyleBackColor = true;
-            this.button.Click += new System.EventHandler(this.button_Click);
+            //this.button.Click += new System.EventHandler(this.button_Click);
             // 
             // buttonbuyticket
             // 

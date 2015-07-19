@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,10 +44,10 @@ namespace Myfilm
             movie.id = (int)dr["id"];
             return movie;
         }
-        private void dataMovieList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        private void listMovie_SelectedIndexChanged(object sender, EventArgs e)
+		{
 
-        }
+		}
 
         private void dataMovieList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

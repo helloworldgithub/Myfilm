@@ -94,7 +94,7 @@
             this.dataMovieList.Size = new System.Drawing.Size(492, 252);
             this.dataMovieList.TabIndex = 5;
             this.dataMovieList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellClick);
-            this.dataMovieList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellContentClick);
+            //this.dataMovieList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellContentClick);
             this.dataMovieList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellContentDoubleClick);
             // 
             // MovieList
@@ -109,6 +109,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MovieList";
             this.Text = "MovieList";
+//            this.Load += new System.EventHandler(this.MovieList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataMovieList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,6 +122,7 @@
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonPub;
         private System.Windows.Forms.TextBox textName;
+        private System.Windows.Forms.ListBox listMovie;
         private System.Windows.Forms.DataGridView dataMovieList;
     }
 }

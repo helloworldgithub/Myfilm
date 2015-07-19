@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +18,7 @@ namespace Myfilm
             {
                 try
                 {
-                    string strConn = "Server=.\\sqlexpress;Database=myFilm;Integrated security=true";
+                    string strConn = @"Server=.\sqlexpress;Database=myFilm;Integrated security=true";
 
                     //configurationManager不存在上下文终极解决方案：引用中添加system.configuratioin
                     if (conn == null)

@@ -16,7 +16,6 @@ namespace Myfilm
         public MoviePublish()
         {
             InitializeComponent();
-            //this.movie = getPublishInfo();
         }
 
         private void MoviePublish_Load(object sender, EventArgs e)
@@ -56,11 +55,19 @@ namespace Myfilm
             }
             
         }
-
+        //发布电影
         private void buttonpublish_Click(object sender, EventArgs e)
         {
-
-        }
+            string sql = String.Format("insert into films(filmName,price length,description,director,hall,startTime,logo,amount) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", movie.name,movie.price,movie.length,movie.description,movie.director,movie.hallNum,movie.startTime,movie.logoPath,movie.amount);
+            if(dbHelper.ExecuteCommand(sql)>0)
+            {
+                MessageBox.Show("publish success");
+            }
+            else
+            {
+                MessageBox.Show("publish fail");
+            }
+		}
     }
 
 }
