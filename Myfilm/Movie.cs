@@ -22,7 +22,16 @@ namespace Myfilm
         public float score { get; set; }
         public static DataSet getMovieInfo(string name)
         {
-            string sql = "select * from movie where name like '" + name + "'";
+            string sql = "select * from films where filmName like '" + name + "'";
+            return dbHelper.GetDataSet(sql);
+        }
+        public static DataSet getMovies(int top)
+        {
+            string sql;
+            if (top > -1)
+                sql  = string.Format("select top {0} * from films ", top);
+            else
+                sql =  "select * from films";
             return dbHelper.GetDataSet(sql);
         }
     }

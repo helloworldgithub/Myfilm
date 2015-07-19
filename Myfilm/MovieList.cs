@@ -17,17 +17,17 @@ namespace Myfilm
         public MoviePublish formPub = new MoviePublish();
         public MovieList(int admin)
         {
+            InitializeComponent();
             if (admin == ADMIN)
             {
                 buttonPub.Visible = false;
             }
-            InitializeComponent();
+            dataMovieList.DataSource = Movie.getMovies(-1);
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            listMovie.DataSource = Movie.getMovieInfo(textName.Text);
-            listMovie.DisplayMember = "Table";
+            dataMovieList.DataSource = Movie.getMovieInfo(textName.Text);
         }
 
         private void buttonPub_Click(object sender, EventArgs e)
@@ -35,14 +35,26 @@ namespace Myfilm
             this.formPub.Show();
         }
 
-        private Movie getMovie(){
+        private Movie getMovie()
+        {
             Movie movie = new Movie();
-            DataRow dr = (DataRow)listMovie.SelectedItem;
+            DataRow dr = ((DataRowView)dataMovieList.CurrentRow.DataBoundItem).Row;
             movie.id = (int)dr["id"];
             return movie;
         }
-        private void listMovie_SelectedIndexChanged(object sender, EventArgs e)
+        private void dataMovieList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void dataMovieList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataMovieList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("abc");
             new MovieDetail(this.getMovie()).Show();
         }
     }

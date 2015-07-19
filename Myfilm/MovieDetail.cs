@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 
 namespace Myfilm
 {
@@ -15,9 +14,11 @@ namespace Myfilm
     {
         public MovieDetail(Movie movie)
         {
-            labelName.Text = movie.name;
-
             InitializeComponent();
+            labelName.Text = movie.name;
+            labelDirector.Text = movie.director;
+            labelHall.Text = Convert.ToString(movie.hallNum);
+            labelLength.Text = Convert.ToString(movie.length);
         }
 
         private void MovieDetail_Load(object sender, EventArgs e)

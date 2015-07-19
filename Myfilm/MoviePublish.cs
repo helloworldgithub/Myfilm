@@ -15,8 +15,8 @@ namespace Myfilm
         public Movie movie { get; set; }
         public MoviePublish()
         {
-            this.movie = getPublishInfo();
             InitializeComponent();
+            //this.movie = getPublishInfo();
         }
 
         private void MoviePublish_Load(object sender, EventArgs e)
@@ -55,6 +55,11 @@ namespace Myfilm
                 pictureBoxlogo.Image = image;
             }
             
+        }
+
+        private void buttonpublish_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

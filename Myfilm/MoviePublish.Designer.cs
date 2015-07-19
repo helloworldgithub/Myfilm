@@ -159,6 +159,7 @@
             this.buttonpublish.TabIndex = 13;
             this.buttonpublish.Text = "发布";
             this.buttonpublish.UseVisualStyleBackColor = true;
+            this.buttonpublish.Click += new System.EventHandler(this.buttonpublish_Click);
             // 
             // textBoxlength
             // 
@@ -238,7 +239,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 437);
+            this.ClientSize = new System.Drawing.Size(653, 437);
             this.Controls.Add(this.buttonselectpicture);
             this.Controls.Add(this.dateTimePickerstarttime);
             this.Controls.Add(this.label11);
