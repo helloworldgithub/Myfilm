@@ -20,7 +20,7 @@ namespace Myfilm
         public string logoPath { get; set; }
         public float price { get; set; }
         public int amount { get; set; }
-        public float score { get; set; }
+        public double score { get; set; }
         public DataSet getMovieInfo()
         {
             string sql = @"select * from movie where name like '" + name + "'";
@@ -33,6 +33,11 @@ namespace Myfilm
                 sql  = string.Format("select top {0} * from films ", top);
             else
                 sql =  "select * from films";
+            return dbHelper.GetDataSet(sql);
+        }
+        public DataSet getUserMark()
+        {
+            string sql = string.Format("select userId, score from scores where filmId = '{0}'", this.id);
             return dbHelper.GetDataSet(sql);
         }
         public DataSet getSeats()
