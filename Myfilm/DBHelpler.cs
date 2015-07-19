@@ -8,6 +8,6 @@ namespace Myfilm
 {
     class DBHelpler
     {       
-            public static SqlConnection conn = new SqlConnection(@"Server=.\sqlexpress;Database=studb;integrated security=true");
+            public static SqlConnection conn = new SqlConnection(@"Server=.\sqlexpress;Database=myFilm;integrated security=true");
     }
 }

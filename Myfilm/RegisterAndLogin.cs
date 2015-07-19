@@ -91,13 +91,26 @@ namespace Myfilm
                 DBHelpler.conn.Open();
                 string sql = "insert into user(name,password,type) values('"+user.Name+"','"+user.Password+"','"+user.Type+"')";
                 SqlCommand cmd = new SqlCommand(sql, DBHelpler.conn);
+                //注册成功直接进入
                 if ((cmd.ExecuteNonQuery()) > 0)
                 {
+                    DBHelpler.conn.Close();
                     MessageBox.Show("register successfully");
+                    if (user.Type == 0)
+                    {
+                        Form frmUserMain = new UserMain();
+                        frmUserMain.Show();
+                    }
+                    else
+                    {
+                        Form frmAdmain = new AdmainMain();
+                        frmAdmain.Show();
+                    }
                 }
-                   //注册成功直接进入
+                   //fail register
                 else
                 {
+                    DBHelpler.conn.Close();
                     MessageBox.Show("register fail");
                     
                 }
@@ -106,7 +119,39 @@ namespace Myfilm
 
         private void RegisterAndLogin_Load(object sender, EventArgs e)
         {
+            clear();
+        }
+        //登陆操作
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            DBHelpler.conn.Open();
+            User user=getInfo();
+            string sql = "select count(*) from user where username='" + user.Name + "' and password='"+user.Password+"' and type='"+user.Type+"'";
+            SqlCommand cmd = new SqlCommand(sql, DBHelpler.conn);
+            int i = (int)cmd.ExecuteScalar();
+            if(i>0)
+            {
+                DBHelpler.conn.Close();
+                if (user.Type == 0)
+                {
+                    Form frmUserMain = new UserMain();
+                    frmUserMain.Show();
+                }
+                else
+                {
+                    Form frmAdmain = new AdmainMain();
+                    frmAdmain.Show();
+                }
 
+                
+            }
+            else
+            {
+                DBHelpler.conn.Close();
+                MessageBox.Show("username or password is wrong");
+                
+            }
+            
         }
     }
 }

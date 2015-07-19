@@ -87,6 +87,7 @@
             this.buttonLogin.TabIndex = 6;
             this.buttonLogin.Text = "登陆";
             this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // buttonRegister
             // 
@@ -113,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 472);
+            this.ClientSize = new System.Drawing.Size(1112, 472);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.buttonLogin);
