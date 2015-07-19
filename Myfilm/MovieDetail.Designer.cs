@@ -310,6 +310,7 @@
             this.buttonbuyticket.TabIndex = 34;
             this.buttonbuyticket.Text = "购票选座";
             this.buttonbuyticket.UseVisualStyleBackColor = true;
+            this.buttonbuyticket.Click += new System.EventHandler(this.buttonbuyticket_Click);
             // 
             // MovieDetail
             // 

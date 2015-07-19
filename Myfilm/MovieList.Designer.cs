@@ -32,7 +32,8 @@
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonPub = new System.Windows.Forms.Button();
             this.textName = new System.Windows.Forms.TextBox();
-            this.listMovie = new System.Windows.Forms.ListBox();
+            this.dataMovieList = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataMovieList)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -71,29 +72,45 @@
             this.textName.Size = new System.Drawing.Size(279, 21);
             this.textName.TabIndex = 4;
             // 
-            // listMovie
+            // dataMovieList
             // 
-            this.listMovie.FormattingEnabled = true;
-            this.listMovie.ItemHeight = 12;
-            this.listMovie.Location = new System.Drawing.Point(14, 71);
-            this.listMovie.Name = "listMovie";
-            this.listMovie.Size = new System.Drawing.Size(511, 232);
-            this.listMovie.TabIndex = 3;
-            this.listMovie.SelectedIndexChanged += new System.EventHandler(this.listMovie_SelectedIndexChanged);
+            this.dataMovieList.AllowUserToAddRows = false;
+            this.dataMovieList.AllowUserToDeleteRows = false;
+            this.dataMovieList.AllowUserToResizeColumns = false;
+            this.dataMovieList.AllowUserToResizeRows = false;
+            this.dataMovieList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataMovieList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataMovieList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataMovieList.DataMember = "Table";
+            this.dataMovieList.Location = new System.Drawing.Point(12, 63);
+            this.dataMovieList.MultiSelect = false;
+            this.dataMovieList.Name = "dataMovieList";
+            this.dataMovieList.ReadOnly = true;
+            this.dataMovieList.RowHeadersVisible = false;
+            this.dataMovieList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataMovieList.RowTemplate.Height = 23;
+            this.dataMovieList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataMovieList.ShowEditingIcon = false;
+            this.dataMovieList.Size = new System.Drawing.Size(492, 252);
+            this.dataMovieList.TabIndex = 5;
+            this.dataMovieList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellClick);
+            //this.dataMovieList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellContentClick);
+            this.dataMovieList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellContentDoubleClick);
             // 
             // MovieList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 356);
+            this.Controls.Add(this.dataMovieList);
             this.Controls.Add(this.textName);
-            this.Controls.Add(this.listMovie);
             this.Controls.Add(this.buttonPub);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.label1);
             this.Name = "MovieList";
             this.Text = "MovieList";
             this.Load += new System.EventHandler(this.MovieList_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataMovieList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,5 +123,6 @@
         private System.Windows.Forms.Button buttonPub;
         private System.Windows.Forms.TextBox textName;
         private System.Windows.Forms.ListBox listMovie;
+        private System.Windows.Forms.DataGridView dataMovieList;
     }
 }

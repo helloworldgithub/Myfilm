@@ -17,6 +17,7 @@ namespace Myfilm
         public formLogin()
         {
             InitializeComponent();
+            this.clear();
         }
         /// <summary>
         /// 获取输入框里的信息
@@ -27,7 +28,7 @@ namespace Myfilm
             User user=new User();
             user.username = textBoxName.Text.Trim();
             user.password = textBoxPassword.Text.Trim();
-            user.type = comboBox1.SelectedIndex;
+            user.type = comboType.SelectedIndex;
             return user;
             
         }
@@ -38,7 +39,7 @@ namespace Myfilm
         {   
             textBoxName.Text = "";
             textBoxPassword.Text = "";
-            comboBox1.Text = "";
+            comboType.SelectedIndex = 0;
         }
         /// <summary>
         /// 注册
@@ -49,7 +50,10 @@ namespace Myfilm
         {
             user = this.getUser();
 
-            if (user.isExisting())
+            if (user.username == "" || user.password == ""){
+                MessageBox.Show("用户名和密码不能为空！");
+            }
+            else if (user.isExisting())
             {
                 MessageBox.Show("该用户已存在！");
 
@@ -76,8 +80,13 @@ namespace Myfilm
             {
                 MessageBox.Show("登录成功！");
                 this.Hide();
-                new MovieList(comboBox1.SelectedIndex).Show();
-
+                new MovieList(comboType.SelectedIndex).Show();
+                /*
+                Movie movie = new Movie();
+                movie.id = 1;
+                movie.amount = 54;
+                new SeatsChooser(movie).Show();
+                */
             }
             else
             {

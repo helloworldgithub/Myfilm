@@ -15,9 +15,7 @@ namespace Myfilm
         public Movie movie { get; set; }
         public MoviePublish()
         {
-            
             InitializeComponent();
-            this.movie = getPublishInfo();
         }
 
         private void MoviePublish_Load(object sender, EventArgs e)
@@ -70,7 +68,7 @@ namespace Myfilm
             {
                 MessageBox.Show("publish fail");
             }
-        }
+		}
     }
 
 }
