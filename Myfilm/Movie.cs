@@ -35,6 +35,11 @@ namespace Myfilm
                 sql =  "select * from films";
             return dbHelper.GetDataSet(sql);
         }
+        public DataSet getUserMark()
+        {
+            string sql = string.Format("select userId, score from scores where filmId = '{0}'", this.id);
+            return dbHelper.GetDataSet(sql);
+        }
         public DataSet getSeats()
         {
             string sql = string.Format("select flag from seat where filmId = '{0}'", this.id);
