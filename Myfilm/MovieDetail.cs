@@ -49,7 +49,7 @@ namespace Myfilm
             for (int i = 0; i < 5 ; i ++)
             {
                 picMark[i].Click += movieMark;
-                //picMark[i].MouseHover += movieOver;
+                picMark[i].MouseHover += movieOver;
             }
 
             DataTable dt = this.detailMovie.getUserMark().Tables[0];
@@ -57,20 +57,11 @@ namespace Myfilm
             int count = dt.Rows.Count;
             foreach (DataRow r in dt.Rows)
             {
-                //sum_score += (int)(dt.Columns[0]);
+                sum_score += (int)r["score"];
             }
-            double ave_score = 1.0 * sum_score / count;
-            for (int i = 0; i < 5; i++)
-            {
-                if (i < (int)ave_score)
-                    picMark[i].Image = Image.FromFile("full.png");
-                else
-                    picMark[i].Image = Image.FromFile("empty.png");
-            }
-            if (ave_score - (int)ave_score >= 0.5)
-                picMark[(int)ave_score].Image = Image.FromFile("empty.png");
-            else
-                picMark[(int)ave_score].Image = Image.FromFile("half.png");
+            this.detailMovie.score = 1.0 * sum_score / count;
+
+            clearMark();
         }
 
         private void movieMark(object sender, EventArgs e)
@@ -78,11 +69,23 @@ namespace Myfilm
             int ind = (((PictureBox)sender).Left - picMark[0].Left) / (picMark[1].Left - picMark[0].Left);
 
         }
-        /*
+        
         private void movieOver(object sender, EventArgs e)
         {
-
-        }*/
+            int ind = (((PictureBox)sender).Left - picMark[0].Left) / (picMark[1].Left - picMark[0].Left);
+            int shift = (((PictureBox)sender).Left - picMark[0].Left) - ind * (picMark[1].Left - picMark[0].Left);
+            for (int i = 0; i < 5; i++)
+            {
+                if (i < ind)
+                    picMark[i].Image = Image.FromFile("full.png");
+                else
+                    picMark[i].Image = Image.FromFile("empty.png");
+            }
+            if (shift >= (picMark[1].Right-picMark[1].Left)/2)
+                picMark[ind].Image = Image.FromFile("empty.png");
+            else
+                picMark[ind].Image = Image.FromFile("half.png");
+        }
 
         private void MovieDetail_Load(object sender, EventArgs e)
         {
@@ -97,6 +100,24 @@ namespace Myfilm
         private void button_Click(object sender, EventArgs e)
         {
 
+        }
+        private void clearMark()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (i < (int)detailMovie.score)
+                    picMark[i].Image = Image.FromFile("full.png");
+                else
+                    picMark[i].Image = Image.FromFile("empty.png");
+            }
+            if (detailMovie.score - (int)detailMovie.score >= 0.5)
+                picMark[(int)detailMovie.score].Image = Image.FromFile("empty.png");
+            else
+                picMark[(int)detailMovie.score].Image = Image.FromFile("half.png");
+        }
+        private void groupBox1_Leave(object sender, EventArgs e)
+        {
+            clearMark();
         }
     }
 }
