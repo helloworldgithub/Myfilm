@@ -24,7 +24,16 @@ namespace Myfilm
             InitializeComponent();
             this.movie = _movie;
             this.choose = new bool[movie.amount];
-            for (int i = 0; i <= movie.amount; i++)
+
+            DataRowCollection res = movie.getSeats().Tables[0].Rows;
+            for (int i = 0; i < res.Count; i++)
+            {
+                int s = (int)res[i]["flag"];
+                this.choose[s] = true;
+
+            }
+
+            for (int i = 0; i < movie.amount; i++)
             {
                 int x = i % NUM_COLUMNS;
                 int y = i / NUM_COLUMNS;
@@ -36,8 +45,14 @@ namespace Myfilm
                 button.Height = HEIGHT;
                 button.Width = WIDTH;
                 button.Click += F;
+                if (choose[i])
+                {
+                    //button.Checked = true;
+                    button.Enabled = false;
+                }
                 groupBox1.Controls.Add(button);
             }
+
         }
         private void F(object sender, EventArgs e)
         {
@@ -48,6 +63,18 @@ namespace Myfilm
         private void SeatsChooser_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<int> seats = new List<int>();
+            for (int i = 0; i < this.movie.amount; i++)
+            {
+                if (this.choose[i])
+                {
+                    seats.Add(i);
+                }
+            }
         }
     }
 }

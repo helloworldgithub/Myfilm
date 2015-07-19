@@ -59,6 +59,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "购买";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SeatsChooser
             // 
@@ -69,7 +70,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "SeatsChooser";
-            this.Text = "SeatsChooser";
+            this.Text = "9";
             this.Load += new System.EventHandler(this.SeatsChooser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -27,7 +27,9 @@ namespace Myfilm
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            dataMovieList.DataSource = Movie.getMovieInfo(textName.Text);
+            Movie movie = new Movie();
+            movie.name = textName.Text;
+            dataMovieList.DataSource = movie.getMovieInfo();
         }
 
         private void buttonPub_Click(object sender, EventArgs e)
@@ -54,7 +56,6 @@ namespace Myfilm
 
         private void dataMovieList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("abc");
             new MovieDetail(this.getMovie()).Show();
         }
     }

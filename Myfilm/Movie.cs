@@ -20,9 +20,9 @@ namespace Myfilm
         public float price { get; set; }
         public int amount { get; set; }
         public float score { get; set; }
-        public static DataSet getMovieInfo(string name)
+        public DataSet getMovieInfo()
         {
-            string sql = "select * from films where filmName like '" + name + "'";
+            string sql = "select * from films where filmName like '" + this.name + "'";
             return dbHelper.GetDataSet(sql);
         }
         public static DataSet getMovies(int top)
@@ -32,6 +32,11 @@ namespace Myfilm
                 sql  = string.Format("select top {0} * from films ", top);
             else
                 sql =  "select * from films";
+            return dbHelper.GetDataSet(sql);
+        }
+        public DataSet getSeats()
+        {
+            string sql = string.Format("select flag from seat where filmId = '{0}'", this.id);
             return dbHelper.GetDataSet(sql);
         }
     }
