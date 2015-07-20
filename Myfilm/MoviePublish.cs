@@ -18,8 +18,6 @@ namespace Myfilm
         {
             InitializeComponent();
             movie = new Movie();
-            
-           
         }
 
         private void MoviePublish_Load(object sender, EventArgs e)
@@ -41,6 +39,7 @@ namespace Myfilm
                 movie.price = Convert.ToSingle(textBoxprice.Text.Trim());
                 movie.amount = int.Parse(textBoxamount.Text.Trim());
                 movie.score = Convert.ToSingle(textBoxscore.Text.Trim());
+                movie.director = Convert.ToString(textBoxdirector.Text.Trim());
             }
             catch(Exception e)
             {

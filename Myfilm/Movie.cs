@@ -23,7 +23,7 @@ namespace Myfilm
         public double score { get; set; }
         public DataSet getMovieInfo()
         {
-            string sql = @"select * from movie where name like '" + name + "'";
+            string sql = @"select * from films where filmName like '" + name + "'";
             return dbHelper.GetDataSet(sql);
         }
         public static DataSet getMovies(int top)
@@ -37,7 +37,7 @@ namespace Myfilm
         }
         public DataSet getUserMark()
         {
-            string sql = string.Format("select userId, score from scores where filmId = '{0}'", this.id);
+            string sql = string.Format("select score from scores where filmId = '{0}'", this.id);
             return dbHelper.GetDataSet(sql);
         }
         public DataSet getSeats()

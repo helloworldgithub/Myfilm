@@ -101,7 +101,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(351, 271);
+            this.label7.Location = new System.Drawing.Point(288, 241);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 6;
@@ -109,43 +109,44 @@
             // 
             // textBoxname
             // 
-            this.textBoxname.Location = new System.Drawing.Point(136, 9);
+            this.textBoxname.Location = new System.Drawing.Point(107, 9);
             this.textBoxname.Name = "textBoxname";
-            this.textBoxname.Size = new System.Drawing.Size(100, 21);
+            this.textBoxname.Size = new System.Drawing.Size(129, 21);
             this.textBoxname.TabIndex = 7;
             // 
             // textBoxdirector
             // 
-            this.textBoxdirector.Location = new System.Drawing.Point(136, 54);
+            this.textBoxdirector.Location = new System.Drawing.Point(107, 54);
             this.textBoxdirector.Name = "textBoxdirector";
-            this.textBoxdirector.Size = new System.Drawing.Size(100, 21);
+            this.textBoxdirector.Size = new System.Drawing.Size(129, 21);
             this.textBoxdirector.TabIndex = 8;
             // 
             // textBoxhall
             // 
-            this.textBoxhall.Location = new System.Drawing.Point(136, 94);
+            this.textBoxhall.Location = new System.Drawing.Point(107, 94);
             this.textBoxhall.Name = "textBoxhall";
-            this.textBoxhall.Size = new System.Drawing.Size(100, 21);
+            this.textBoxhall.Size = new System.Drawing.Size(129, 21);
             this.textBoxhall.TabIndex = 9;
             // 
             // textBoxprice
             // 
-            this.textBoxprice.Location = new System.Drawing.Point(136, 125);
+            this.textBoxprice.Location = new System.Drawing.Point(107, 125);
             this.textBoxprice.Name = "textBoxprice";
-            this.textBoxprice.Size = new System.Drawing.Size(100, 21);
+            this.textBoxprice.Size = new System.Drawing.Size(129, 21);
             this.textBoxprice.TabIndex = 10;
             // 
             // richTextBoxdescription
             // 
-            this.richTextBoxdescription.Location = new System.Drawing.Point(412, 271);
+            this.richTextBoxdescription.Location = new System.Drawing.Point(290, 267);
             this.richTextBoxdescription.Name = "richTextBoxdescription";
-            this.richTextBoxdescription.Size = new System.Drawing.Size(219, 114);
+            this.richTextBoxdescription.Size = new System.Drawing.Size(219, 85);
             this.richTextBoxdescription.TabIndex = 11;
             this.richTextBoxdescription.Text = "";
             // 
             // pictureBoxlogo
             // 
-            this.pictureBoxlogo.Location = new System.Drawing.Point(412, 9);
+            this.pictureBoxlogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxlogo.Location = new System.Drawing.Point(290, 9);
             this.pictureBoxlogo.Name = "pictureBoxlogo";
             this.pictureBoxlogo.Size = new System.Drawing.Size(219, 200);
             this.pictureBoxlogo.TabIndex = 12;
@@ -153,7 +154,7 @@
             // 
             // buttonpublish
             // 
-            this.buttonpublish.Location = new System.Drawing.Point(246, 402);
+            this.buttonpublish.Location = new System.Drawing.Point(434, 358);
             this.buttonpublish.Name = "buttonpublish";
             this.buttonpublish.Size = new System.Drawing.Size(75, 23);
             this.buttonpublish.TabIndex = 13;
@@ -163,9 +164,9 @@
             // 
             // textBoxlength
             // 
-            this.textBoxlength.Location = new System.Drawing.Point(136, 182);
+            this.textBoxlength.Location = new System.Drawing.Point(107, 182);
             this.textBoxlength.Name = "textBoxlength";
-            this.textBoxlength.Size = new System.Drawing.Size(100, 21);
+            this.textBoxlength.Size = new System.Drawing.Size(129, 21);
             this.textBoxlength.TabIndex = 14;
             // 
             // label8
@@ -188,16 +189,16 @@
             // 
             // textBoxamount
             // 
-            this.textBoxamount.Location = new System.Drawing.Point(136, 232);
+            this.textBoxamount.Location = new System.Drawing.Point(107, 232);
             this.textBoxamount.Name = "textBoxamount";
-            this.textBoxamount.Size = new System.Drawing.Size(100, 21);
+            this.textBoxamount.Size = new System.Drawing.Size(129, 21);
             this.textBoxamount.TabIndex = 17;
             // 
             // textBoxscore
             // 
-            this.textBoxscore.Location = new System.Drawing.Point(136, 283);
+            this.textBoxscore.Location = new System.Drawing.Point(107, 283);
             this.textBoxscore.Name = "textBoxscore";
-            this.textBoxscore.Size = new System.Drawing.Size(100, 21);
+            this.textBoxscore.Size = new System.Drawing.Size(129, 21);
             this.textBoxscore.TabIndex = 18;
             // 
             // label10
@@ -220,14 +221,14 @@
             // 
             // dateTimePickerstarttime
             // 
-            this.dateTimePickerstarttime.Location = new System.Drawing.Point(136, 331);
+            this.dateTimePickerstarttime.Location = new System.Drawing.Point(107, 331);
             this.dateTimePickerstarttime.Name = "dateTimePickerstarttime";
-            this.dateTimePickerstarttime.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePickerstarttime.Size = new System.Drawing.Size(129, 21);
             this.dateTimePickerstarttime.TabIndex = 21;
             // 
             // buttonselectpicture
             // 
-            this.buttonselectpicture.Location = new System.Drawing.Point(492, 216);
+            this.buttonselectpicture.Location = new System.Drawing.Point(434, 215);
             this.buttonselectpicture.Name = "buttonselectpicture";
             this.buttonselectpicture.Size = new System.Drawing.Size(75, 23);
             this.buttonselectpicture.TabIndex = 22;
@@ -239,7 +240,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 437);
+            this.ClientSize = new System.Drawing.Size(532, 389);
             this.Controls.Add(this.buttonselectpicture);
             this.Controls.Add(this.dateTimePickerstarttime);
             this.Controls.Add(this.label11);

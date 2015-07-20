@@ -35,7 +35,7 @@
             // 
             // textBoxrecharge
             // 
-            this.textBoxrecharge.Location = new System.Drawing.Point(251, 156);
+            this.textBoxrecharge.Location = new System.Drawing.Point(133, 30);
             this.textBoxrecharge.Name = "textBoxrecharge";
             this.textBoxrecharge.Size = new System.Drawing.Size(100, 21);
             this.textBoxrecharge.TabIndex = 0;
@@ -43,7 +43,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 156);
+            this.label1.Location = new System.Drawing.Point(43, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 1;
@@ -51,7 +51,7 @@
             // 
             // buttonok
             // 
-            this.buttonok.Location = new System.Drawing.Point(235, 305);
+            this.buttonok.Location = new System.Drawing.Point(96, 88);
             this.buttonok.Name = "buttonok";
             this.buttonok.Size = new System.Drawing.Size(75, 23);
             this.buttonok.TabIndex = 2;
@@ -63,7 +63,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 455);
+            this.ClientSize = new System.Drawing.Size(271, 132);
             this.Controls.Add(this.buttonok);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxrecharge);

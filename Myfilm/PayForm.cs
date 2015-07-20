@@ -14,29 +14,18 @@ namespace Myfilm
     {
         private Movie movie { get; set; }
         private User user { get; set; }
-        public PayForm(Movie movie,User user)
+        private Seat seats;
+        private float total_price;
+        public PayForm(Movie movie,User user,Seat seats)
         {
             InitializeComponent();
             this.movie = movie;
             this.user = user;
-           
-            string sql = string.Format("select * from [user] where username='{0}'", user.username);
-            SqlDataReader dr = dbHelper.GetDataReader(sql);
-            if(dr.Read())
-            { textBoxleftmoney.Text = Convert.ToString(dr["money"]);
-            
-            }
-            dr.Close();
-            dbHelper.Conn.Close();
-                  
-            string sqlmovie = "select * from films where filmName='" + movie.name + "'";
-            SqlDataReader drmovie = dbHelper.GetDataReader(sqlmovie);
-            if(drmovie.Read())
-            {
-                textBoxtotalprice.Text = Convert.ToString(drmovie["price"]);
-               
-            }
-            drmovie.Close();
+            this.seats = seats;
+            this.total_price = movie.price * seats.Count;
+
+            textBoxtotalprice.Text = Convert.ToString(this.total_price);
+            textBoxleftmoney.Text = Convert.ToString(user.money);
         }
         
 
@@ -47,28 +36,31 @@ namespace Myfilm
 
         private void buttonpaymonye_Click(object sender, EventArgs e)
         {
-            if(user.money<movie.price)
+            if (user.money < this.total_price)
             {
                 MessageBox.Show("当前余额不足，请立即充值");
             }
             else
             {
-                user.money -= movie.price;
-                string sql = string.Format("update [user] set money='{0}' where username='{1}'", user.money, user.username);
-                if(dbHelper.ExecuteCommand(sql)>0)
-                {
-                    MessageBox.Show("您购买票成功");
+                
+                if (seats.Occupy(user.id, movie.id, movie.hallNum) && user.pay(total_price)){
+                    MessageBox.Show("购票成功！");
+                    this.Close();
                 }
                 else
-                {
-
-                }
+                    MessageBox.Show("购票失败！");
             }
         }
 
         private void buttonrecharge_Click(object sender, EventArgs e)
         {
             new RechargeForm(user).Show();
+        }
+
+        private void PayForm_Activated(object sender, EventArgs e)
+        {
+            user.getUserById();
+            textBoxleftmoney.Text = Convert.ToString(user.money);
         }
     }
 }

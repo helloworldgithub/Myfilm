@@ -10,14 +10,15 @@ using System.Windows.Forms;
 
 namespace Myfilm
 {
-    public partial class comment : Form
+    public partial class commentForm : Form
     {
         private User user { get; set; }
         private Movie movie { get; set; }
-        public comment(User user,Movie movie)
+        public commentForm(User user,Movie movie)
         {
             InitializeComponent();
-            
+            this.user = user;
+            this.movie = movie;
         }
 
         private void comment_Load(object sender, EventArgs e)
@@ -27,10 +28,10 @@ namespace Myfilm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string sql=string.Format("insert into [comments](userId,filmId,comments) values('{0}','{1}','{2}')",user.id,movie.id,richTextBox1.Text.Trim());
-            if(dbHelper.ExecuteCommand(sql)>0)
+            if (Comment.addComment(movie.id, user.id, richTextBox1.Text))
             {
                 MessageBox.Show("提交评论成功");
+                this.Close();
             }
             else
             {

@@ -28,10 +28,14 @@ namespace Myfilm
         {
             float recharge = Convert.ToSingle(textBoxrecharge.Text.Trim());
 
-            string sql = string.Format("update [user] set money='{0}' where username='{1}'", (recharge + user.money), user.username);
-            if(dbHelper.ExecuteCommand(sql)>0)
+            if (user.recharge(recharge))
             {
-                MessageBox.Show("充值成功");
+                MessageBox.Show("充值成功！");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("充值失败！");
             }
         }
     }

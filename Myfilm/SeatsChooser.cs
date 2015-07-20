@@ -19,6 +19,7 @@ namespace Myfilm
         private int WIDTH = 30;
         private int HEIGHT = 30;
         private bool[] choose;
+        private bool[] sold;
 
         private Movie movie;
         public SeatsChooser(Movie _movie,User user)
@@ -27,16 +28,15 @@ namespace Myfilm
             this.user = user;
             InitializeComponent();
             this.movie = _movie;
+            this.sold = new bool[movie.amount];
             this.choose = new bool[movie.amount];
 
             DataRowCollection res = movie.getSeats().Tables[0].Rows;
             for (int i = 0; i < res.Count; i++)
             {
                 int s = (int)res[i]["flag"];
-                this.choose[s] = true;
-
+                this.sold[s] = true;
             }
-
             for (int i = 0; i < movie.amount; i++)
             {
                 int x = i % NUM_COLUMNS;
@@ -49,7 +49,7 @@ namespace Myfilm
                 button.Height = HEIGHT;
                 button.Width = WIDTH;
                 button.Click += F;
-                if (choose[i])
+                if (sold[i])
                 {
                     //button.Checked = true;
                     button.Enabled = false;
@@ -62,25 +62,34 @@ namespace Myfilm
         {
             CheckBox clicked = (CheckBox)sender;
             int seat = Convert.ToInt32(clicked.Text);
-            this.choose[seat] = false;
+            if (this.choose[seat])
+                this.choose[seat] = false;
+            else
+                this.choose[seat] = true;
+            
         }
         private void SeatsChooser_Load(object sender, EventArgs e)
         {
 
         }
         //购买跳到payform中
-
-        private void button1_Click(object sender, EventArgs e)
+        private Seat getSeats()
         {
-            List<int> seats = new List<int>();
+            Seat seats = new Seat();
             for (int i = 0; i < this.movie.amount; i++)
             {
                 if (this.choose[i])
                 {
+                    this.choose[i] = true;
                     seats.Add(i);
                 }
             }
-            new PayForm(movie,user).Show();
+            return seats;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new PayForm(movie,user,getSeats()).Show();
+            this.Hide();
         }
     }
 }

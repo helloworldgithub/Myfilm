@@ -50,13 +50,21 @@
     <Compile Include="AdmainMain.Designer.cs">
       <DependentUpon>AdmainMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="comment.cs">
+    <Compile Include="boughtForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="comment.Designer.cs">
-      <DependentUpon>comment.cs</DependentUpon>
+    <Compile Include="boughtForm.Designer.cs">
+      <DependentUpon>boughtForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comment.cs" />
+    <Compile Include="commentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="commentForm.Designer.cs">
+      <DependentUpon>commentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DBHelpler.cs" />
+    <Compile Include="Mark.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="MovieDetail.cs">
       <SubType>Form</SubType>
@@ -101,6 +109,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Include="Seat.cs" />
     <Compile Include="SeatsChooser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,8 +127,11 @@
       <DependentUpon>AdmainMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="comment.resx">
-      <DependentUpon>comment.cs</DependentUpon>
+    <EmbeddedResource Include="boughtForm.resx">
+      <DependentUpon>boughtForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="commentForm.resx">
+      <DependentUpon>commentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MovieDetail.resx">
       <DependentUpon>MovieDetail.cs</DependentUpon>
@@ -179,6 +191,8 @@
     <None Include="Resources\panda.jpg" />
     <None Include="Resources\empty.png" />
     <None Include="Resources\full.png" />
+    <None Include="Resources\half.png" />
+    <None Include="Resources\half.bmp" />
     <Content Include="资源\myfilm.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

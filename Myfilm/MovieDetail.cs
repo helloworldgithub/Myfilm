@@ -16,7 +16,8 @@ namespace Myfilm
         //加载的时候就显示相应的信息
         private Movie detailMovie;
         private User user { get; set; }
-        private PictureBox[] picMark;
+        private PictureBox[] picMark = new PictureBox[5];
+        private Comment comments;
         public MovieDetail(Movie movie,User user)
         {
             
@@ -29,56 +30,96 @@ namespace Myfilm
             textBoxhallnum.Text = detailMovie.hallNum.ToString();
             textBoxlength.Text = detailMovie.length.ToString();
             textBoxprice.Text = detailMovie.price.ToString();
-            dateTimePicker1.Value = detailMovie.startTime;
+            textTime.Text = detailMovie.startTime.ToString();
             picturePoster.Image = Image.FromFile(detailMovie.logoPath);
-            string sql = string.Format("select * from [comments] where filmId='{0}'", detailMovie.id);
-            SqlDataReader dr = dbHelper.GetDataReader(sql);
+            comments = new Comment();
+            comments.getFilmComments(detailMovie.id);
+            labelRemark1.Text = Convert.ToString(comments.comments[0]);
+            labelRemark2.Text = Convert.ToString(comments.comments[1]);
           
             picMark[0] = pictureBox1;
-            picMark[1] = pictureBox1;
-            picMark[2] = pictureBox1;
-            picMark[3] = pictureBox1;
-            picMark[4] = pictureBox1;
+            picMark[1] = pictureBox2;
+            picMark[2] = pictureBox3;
+            picMark[3] = pictureBox4;
+            picMark[4] = pictureBox5;
 
             for (int i = 0; i < 5 ; i ++)
             {
                 picMark[i].Click += movieMark;
-                picMark[i].MouseHover += movieOver;
+                picMark[i].MouseMove += movieOver;
             }
+            groupBox1.MouseMove += movieOver;
+            groupBox1.Click += movieMark;
 
             DataTable dt = this.detailMovie.getUserMark().Tables[0];
-            int sum_score = 0;
+            double sum_score = 0;
             int count = dt.Rows.Count;
             foreach (DataRow r in dt.Rows)
             {
-                sum_score += (int)r["score"];
+                sum_score += Convert.ToDouble(r["score"]);
             }
-            this.detailMovie.score = 1.0 * sum_score / count;
+            if (count == 0)
+                this.detailMovie.score = 0;
+            else
+                this.detailMovie.score = 1.0 * sum_score / count;
 
             clearMark();
         }
-
         private void movieMark(object sender, EventArgs e)
         {
-            int ind = (((PictureBox)sender).Left - picMark[0].Left) / (picMark[1].Left - picMark[0].Left);
+            int x = MousePosition.X - this.Left - groupBox1.Left - picMark[0].Left;
+            int ind = x / (picMark[1].Left - picMark[0].Left);
+            int shift = x - ind * (picMark[1].Left - picMark[0].Left);
+            if (ind >= 5)
+            {
+                ind = 4;
+                shift = 0;
+            }
+            if (ind < 0)
+            {
+                ind = 0;
+                shift = 0;
+            }
+            float mark = ind;
+            if (shift >= (picMark[1].Right - picMark[1].Left) / 2)
+                mark += 0.5F;
 
+            if (Mark.mark(detailMovie.id, user.id, mark))
+            {
+                MessageBox.Show("评分成功！");
+            }
+            else
+            {
+                MessageBox.Show("评分失败！");
+            }
         }
         
         private void movieOver(object sender, EventArgs e)
         {
-            int ind = (((PictureBox)sender).Left - picMark[0].Left) / (picMark[1].Left - picMark[0].Left);
-            int shift = (((PictureBox)sender).Left - picMark[0].Left) - ind * (picMark[1].Left - picMark[0].Left);
+            int x = MousePosition.X - this.Left - groupBox1.Left - picMark[0].Left;
+            int ind = x / (picMark[1].Left - picMark[0].Left);
+            int shift = x - ind * (picMark[1].Left - picMark[0].Left);
+            if (ind >= 5)
+            {
+                ind = 4;
+                shift = 0;
+            }
+            if (ind < 0)
+            {
+                ind = 0;
+                shift = 0;
+            }
             for (int i = 0; i < 5; i++)
             {
                 if (i < ind)
-                    picMark[i].Image = Image.FromFile("full.png");
+                    picMark[i].Image = Resource1.full;
                 else
-                    picMark[i].Image = Image.FromFile("empty.png");
+                    picMark[i].Image = Resource1.empty;
             }
             if (shift >= (picMark[1].Right-picMark[1].Left)/2)
-                picMark[ind].Image = Image.FromFile("empty.png");
+                picMark[ind].Image = Resource1.half;
             else
-                picMark[ind].Image = Image.FromFile("half.png");
+                picMark[ind].Image = Resource1.empty;
         }
         /*
         private void movieOver(object sender, EventArgs e)
@@ -98,30 +139,35 @@ namespace Myfilm
 
         private void button_Click(object sender, EventArgs e)
         {
-            new comment(user, detailMovie).Show();
+            new commentForm(user, detailMovie).Show();
         }
 
-        private void button_Click(object sender, EventArgs e)
-        {
-
-        }
         private void clearMark()
         {
             for (int i = 0; i < 5; i++)
             {
                 if (i < (int)detailMovie.score)
-                    picMark[i].Image = Image.FromFile("full.png");
+                    picMark[i].Image = Resource1.full;
                 else
-                    picMark[i].Image = Image.FromFile("empty.png");
+                    picMark[i].Image = Resource1.empty;
             }
             if (detailMovie.score - (int)detailMovie.score >= 0.5)
-                picMark[(int)detailMovie.score].Image = Image.FromFile("empty.png");
+                picMark[(int)detailMovie.score].Image = Resource1.half;
             else
-                picMark[(int)detailMovie.score].Image = Image.FromFile("half.png");
+                picMark[(int)detailMovie.score].Image = Resource1.empty;
         }
-        private void groupBox1_Leave(object sender, EventArgs e)
+
+
+        private void MovieDetail_MouseMove(object sender, MouseEventArgs e)
         {
             clearMark();
+        }
+
+        private void MovieDetail_Activated(object sender, EventArgs e)
+        {
+            comments.getFilmComments(detailMovie.id);
+            labelRemark1.Text = Convert.ToString(comments.comments[0]);
+            labelRemark2.Text = Convert.ToString(comments.comments[1]);
         }
     }
 }

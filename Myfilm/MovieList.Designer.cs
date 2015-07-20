@@ -48,7 +48,7 @@
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(344, 25);
+            this.buttonOk.Location = new System.Drawing.Point(383, 25);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(42, 23);
             this.buttonOk.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // buttonPub
             // 
-            this.buttonPub.Location = new System.Drawing.Point(380, 321);
+            this.buttonPub.Location = new System.Drawing.Point(159, 321);
             this.buttonPub.Name = "buttonPub";
             this.buttonPub.Size = new System.Drawing.Size(124, 23);
             this.buttonPub.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             this.textName.Location = new System.Drawing.Point(59, 27);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(279, 21);
+            this.textName.Size = new System.Drawing.Size(313, 21);
             this.textName.TabIndex = 4;
             // 
             // dataMovieList
@@ -92,14 +92,14 @@
             this.dataMovieList.RowTemplate.Height = 23;
             this.dataMovieList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataMovieList.ShowEditingIcon = false;
-            this.dataMovieList.Size = new System.Drawing.Size(492, 252);
+            this.dataMovieList.Size = new System.Drawing.Size(413, 252);
             this.dataMovieList.TabIndex = 5;
             this.dataMovieList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellClick);
             this.dataMovieList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellContentDoubleClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(84, 320);
+            this.button1.Location = new System.Drawing.Point(168, 321);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 23);
             this.button1.TabIndex = 6;
@@ -111,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 356);
+            this.ClientSize = new System.Drawing.Size(442, 356);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataMovieList);
             this.Controls.Add(this.textName);
