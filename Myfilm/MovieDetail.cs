@@ -84,7 +84,7 @@ namespace Myfilm
             if (shift >= (picMark[1].Right - picMark[1].Left) / 2)
                 mark += 0.5F;
 
-            if (Mark.mark(detailMovie.id, user.id, mark))
+            if (Mark.mark(user.id, detailMovie.id, mark))
             {
                 MessageBox.Show("评分成功！");
             }

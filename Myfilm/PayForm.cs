@@ -42,8 +42,7 @@ namespace Myfilm
             }
             else
             {
-                
-                if (seats.Occupy(user.id, movie.id, movie.hallNum) && user.pay(total_price)){
+                if (seats.Occupy(user.id, movie.id) && user.pay(total_price)){
                     MessageBox.Show("购票成功！");
                     this.Close();
                 }

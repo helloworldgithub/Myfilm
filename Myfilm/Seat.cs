@@ -22,19 +22,24 @@ namespace Myfilm
         {
             seats.Add(s);
         }
-        public bool Occupy(int userId, int filmId, int hall)
+        public bool Occupy(int userId, int filmId)
         {
             int c = 0;
             foreach (int s in seats)
             {
-                // Hall怎么办？
-                string sql = string.Format("insert into seat(userId,filmId,hall,flag) values({0},{1},{2},{3})", userId, filmId, hall, s);
+                string sql = string.Format("insert into seat(userId,filmId,flag) values({0},{1},{2})", userId, filmId, s);
                 if (dbHelper.ExecuteCommand(sql) > 0)
                 {
                     c += 1;
                 }
             }
             return c == seats.Count;
+        }
+        public static bool Refund(int userId, int filmId,int flag)
+        {
+            //int c = 0;
+            string sql = string.Format("delete from seat where userId = {0} and filmId = {1} and flag = {2}", userId, filmId,flag);
+            return dbHelper.ExecuteCommand(sql) > 0;
         }
     }
 }
