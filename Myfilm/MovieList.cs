@@ -23,6 +23,10 @@ namespace Myfilm
             }
             InitializeComponent();
         }
+        public MovieList()
+        {
+            InitializeComponent();
+        }
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -41,9 +45,15 @@ namespace Myfilm
             movie.id = (int)dr["id"];
             return movie;
         }
+        
         private void listMovie_SelectedIndexChanged(object sender, EventArgs e)
         {
             new MovieDetail(this.getMovie()).Show();
+        }
+
+        private void MovieList_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

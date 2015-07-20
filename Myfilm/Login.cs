@@ -13,6 +13,7 @@ namespace Myfilm
 {
     public partial class formLogin : Form
     {
+        public User user { get; set; }
         public formLogin()
         {
             InitializeComponent();
@@ -46,7 +47,7 @@ namespace Myfilm
         /// <param name="e"></param>
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            User user = this.getUser();
+            user = this.getUser();
 
             if (user.isExisting())
             {

@@ -45,22 +45,22 @@
             this.labelMark = new System.Windows.Forms.Label();
             this.labelRemark1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.pictureStar1 = new System.Windows.Forms.PictureBox();
-            this.pictureStar2 = new System.Windows.Forms.PictureBox();
-            this.pictureStar3 = new System.Windows.Forms.PictureBox();
-            this.pictureStar4 = new System.Windows.Forms.PictureBox();
-            this.pictureStar5 = new System.Windows.Forms.PictureBox();
-            this.picturePoster = new System.Windows.Forms.PictureBox();
             this.labelRemark2 = new System.Windows.Forms.Label();
+            this.picturePoster = new System.Windows.Forms.PictureBox();
+            this.textBoxfilmname = new System.Windows.Forms.TextBox();
+            this.textBoxprice = new System.Windows.Forms.TextBox();
+            this.textBoxhallnum = new System.Windows.Forms.TextBox();
+            this.textBoxlength = new System.Windows.Forms.TextBox();
+            this.textBoxdirector = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button = new System.Windows.Forms.Button();
+            this.buttonbuyticket = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStar3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStar4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStar5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePoster)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,7 +130,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(181, 9);
+            this.label8.Location = new System.Drawing.Point(636, 178);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 7;
@@ -202,7 +202,7 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(14, 243);
+            this.splitContainer1.Location = new System.Drawing.Point(11, 243);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -216,56 +216,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.labelRemark2);
             this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer1.Size = new System.Drawing.Size(443, 166);
-            this.splitContainer1.SplitterDistance = 83;
+            this.splitContainer1.SplitterDistance = 88;
             this.splitContainer1.TabIndex = 17;
-            // 
-            // pictureStar1
-            // 
-            this.pictureStar1.Location = new System.Drawing.Point(183, 35);
-            this.pictureStar1.Name = "pictureStar1";
-            this.pictureStar1.Size = new System.Drawing.Size(22, 23);
-            this.pictureStar1.TabIndex = 18;
-            this.pictureStar1.TabStop = false;
-            // 
-            // pictureStar2
-            // 
-            this.pictureStar2.Location = new System.Drawing.Point(211, 35);
-            this.pictureStar2.Name = "pictureStar2";
-            this.pictureStar2.Size = new System.Drawing.Size(22, 23);
-            this.pictureStar2.TabIndex = 19;
-            this.pictureStar2.TabStop = false;
-            // 
-            // pictureStar3
-            // 
-            this.pictureStar3.Location = new System.Drawing.Point(239, 35);
-            this.pictureStar3.Name = "pictureStar3";
-            this.pictureStar3.Size = new System.Drawing.Size(22, 23);
-            this.pictureStar3.TabIndex = 20;
-            this.pictureStar3.TabStop = false;
-            // 
-            // pictureStar4
-            // 
-            this.pictureStar4.Location = new System.Drawing.Point(267, 35);
-            this.pictureStar4.Name = "pictureStar4";
-            this.pictureStar4.Size = new System.Drawing.Size(22, 23);
-            this.pictureStar4.TabIndex = 21;
-            this.pictureStar4.TabStop = false;
-            // 
-            // pictureStar5
-            // 
-            this.pictureStar5.Location = new System.Drawing.Point(295, 35);
-            this.pictureStar5.Name = "pictureStar5";
-            this.pictureStar5.Size = new System.Drawing.Size(22, 23);
-            this.pictureStar5.TabIndex = 22;
-            this.pictureStar5.TabStop = false;
-            // 
-            // picturePoster
-            // 
-            this.picturePoster.Location = new System.Drawing.Point(323, 12);
-            this.picturePoster.Name = "picturePoster";
-            this.picturePoster.Size = new System.Drawing.Size(134, 145);
-            this.picturePoster.TabIndex = 23;
-            this.picturePoster.TabStop = false;
             // 
             // labelRemark2
             // 
@@ -275,17 +227,106 @@
             this.labelRemark2.Size = new System.Drawing.Size(0, 12);
             this.labelRemark2.TabIndex = 16;
             // 
+            // picturePoster
+            // 
+            this.picturePoster.Location = new System.Drawing.Point(599, 9);
+            this.picturePoster.Name = "picturePoster";
+            this.picturePoster.Size = new System.Drawing.Size(134, 145);
+            this.picturePoster.TabIndex = 23;
+            this.picturePoster.TabStop = false;
+            // 
+            // textBoxfilmname
+            // 
+            this.textBoxfilmname.Location = new System.Drawing.Point(86, 9);
+            this.textBoxfilmname.Name = "textBoxfilmname";
+            this.textBoxfilmname.Size = new System.Drawing.Size(100, 21);
+            this.textBoxfilmname.TabIndex = 24;
+            // 
+            // textBoxprice
+            // 
+            this.textBoxprice.Location = new System.Drawing.Point(86, 43);
+            this.textBoxprice.Name = "textBoxprice";
+            this.textBoxprice.Size = new System.Drawing.Size(100, 21);
+            this.textBoxprice.TabIndex = 25;
+            // 
+            // textBoxhallnum
+            // 
+            this.textBoxhallnum.Location = new System.Drawing.Point(86, 78);
+            this.textBoxhallnum.Name = "textBoxhallnum";
+            this.textBoxhallnum.Size = new System.Drawing.Size(100, 21);
+            this.textBoxhallnum.TabIndex = 26;
+            // 
+            // textBoxlength
+            // 
+            this.textBoxlength.Location = new System.Drawing.Point(86, 112);
+            this.textBoxlength.Name = "textBoxlength";
+            this.textBoxlength.Size = new System.Drawing.Size(100, 21);
+            this.textBoxlength.TabIndex = 27;
+            // 
+            // textBoxdirector
+            // 
+            this.textBoxdirector.Location = new System.Drawing.Point(86, 145);
+            this.textBoxdirector.Name = "textBoxdirector";
+            this.textBoxdirector.Size = new System.Drawing.Size(100, 21);
+            this.textBoxdirector.TabIndex = 28;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(551, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "海报";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(86, 178);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.TabIndex = 31;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(619, 202);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 32;
+            // 
+            // button
+            // 
+            this.button.Location = new System.Drawing.Point(483, 385);
+            this.button.Name = "button";
+            this.button.Size = new System.Drawing.Size(75, 23);
+            this.button.TabIndex = 33;
+            this.button.Text = "编辑评论";
+            this.button.UseVisualStyleBackColor = true;
+            // 
+            // buttonbuyticket
+            // 
+            this.buttonbuyticket.Location = new System.Drawing.Point(599, 384);
+            this.buttonbuyticket.Name = "buttonbuyticket";
+            this.buttonbuyticket.Size = new System.Drawing.Size(75, 23);
+            this.buttonbuyticket.TabIndex = 34;
+            this.buttonbuyticket.Text = "购票选座";
+            this.buttonbuyticket.UseVisualStyleBackColor = true;
+            // 
             // MovieDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 421);
+            this.ClientSize = new System.Drawing.Size(758, 440);
+            this.Controls.Add(this.buttonbuyticket);
+            this.Controls.Add(this.button);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBoxdirector);
+            this.Controls.Add(this.textBoxlength);
+            this.Controls.Add(this.textBoxhallnum);
+            this.Controls.Add(this.textBoxprice);
+            this.Controls.Add(this.textBoxfilmname);
             this.Controls.Add(this.picturePoster);
-            this.Controls.Add(this.pictureStar5);
-            this.Controls.Add(this.pictureStar4);
-            this.Controls.Add(this.pictureStar3);
-            this.Controls.Add(this.pictureStar2);
-            this.Controls.Add(this.pictureStar1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.labelMark);
             this.Controls.Add(this.labelPresent);
@@ -311,11 +352,6 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStar3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStar4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStar5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePoster)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -341,12 +377,17 @@
         private System.Windows.Forms.Label labelMark;
         private System.Windows.Forms.Label labelRemark1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.PictureBox pictureStar1;
-        private System.Windows.Forms.PictureBox pictureStar2;
-        private System.Windows.Forms.PictureBox pictureStar3;
-        private System.Windows.Forms.PictureBox pictureStar4;
-        private System.Windows.Forms.PictureBox pictureStar5;
         private System.Windows.Forms.PictureBox picturePoster;
         private System.Windows.Forms.Label labelRemark2;
+        private System.Windows.Forms.TextBox textBoxfilmname;
+        private System.Windows.Forms.TextBox textBoxprice;
+        private System.Windows.Forms.TextBox textBoxhallnum;
+        private System.Windows.Forms.TextBox textBoxlength;
+        private System.Windows.Forms.TextBox textBoxdirector;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button;
+        private System.Windows.Forms.Button buttonbuyticket;
     }
 }

@@ -159,6 +159,7 @@
             this.buttonpublish.TabIndex = 13;
             this.buttonpublish.Text = "发布";
             this.buttonpublish.UseVisualStyleBackColor = true;
+            this.buttonpublish.Click += new System.EventHandler(this.buttonpublish_Click);
             // 
             // textBoxlength
             // 

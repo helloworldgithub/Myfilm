@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonPub = new System.Windows.Forms.Button();
-            this.listMovie = new System.Windows.Forms.ListBox();
             this.textName = new System.Windows.Forms.TextBox();
+            this.listMovie = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -64,6 +64,13 @@
             this.buttonPub.UseVisualStyleBackColor = true;
             this.buttonPub.Click += new System.EventHandler(this.buttonPub_Click);
             // 
+            // textName
+            // 
+            this.textName.Location = new System.Drawing.Point(59, 27);
+            this.textName.Name = "textName";
+            this.textName.Size = new System.Drawing.Size(279, 21);
+            this.textName.TabIndex = 4;
+            // 
             // listMovie
             // 
             this.listMovie.FormattingEnabled = true;
@@ -73,13 +80,6 @@
             this.listMovie.Size = new System.Drawing.Size(511, 232);
             this.listMovie.TabIndex = 3;
             this.listMovie.SelectedIndexChanged += new System.EventHandler(this.listMovie_SelectedIndexChanged);
-            // 
-            // textName
-            // 
-            this.textName.Location = new System.Drawing.Point(59, 27);
-            this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(279, 21);
-            this.textName.TabIndex = 4;
             // 
             // MovieList
             // 
@@ -93,6 +93,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MovieList";
             this.Text = "MovieList";
+            this.Load += new System.EventHandler(this.MovieList_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,7 +104,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonPub;
-        private System.Windows.Forms.ListBox listMovie;
         private System.Windows.Forms.TextBox textName;
+        private System.Windows.Forms.ListBox listMovie;
     }
 }
