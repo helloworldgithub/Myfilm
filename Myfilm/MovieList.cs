@@ -12,11 +12,13 @@ namespace Myfilm
 {
     public partial class MovieList : Form
     {
+        public User user { get; set; }
         const int ADMIN = 2;
         const int USER = 1;
         public MoviePublish formPub = new MoviePublish();
-        public MovieList(int admin)
+        public MovieList(int admin,User user)
         {
+            this.user = user;
             InitializeComponent();
             if (admin == ADMIN)
             {
@@ -24,6 +26,7 @@ namespace Myfilm
             }
             dataMovieList.DataSource = Movie.getMovies(-1);
         }
+
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
@@ -56,7 +59,17 @@ namespace Myfilm
 
         private void dataMovieList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            new MovieDetail(this.getMovie()).Show();
+            new MovieDetail(this.getMovie(),user).Show();
+        }
+
+        private void MovieList_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

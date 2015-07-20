@@ -13,7 +13,7 @@ namespace Myfilm
         public string username { get; set; }
         public string password { get; set; }
         public int type { get; set; }
-
+        public float money { get; set; }
         public bool isValidated()
         {
             string sql = string.Format("select count(*) from [user] where username='{0}'and password='{1}' and type={2}",this.username,this.password,this.type);

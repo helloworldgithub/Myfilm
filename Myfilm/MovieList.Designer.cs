@@ -33,6 +33,7 @@
             this.buttonPub = new System.Windows.Forms.Button();
             this.textName = new System.Windows.Forms.TextBox();
             this.dataMovieList = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataMovieList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,9 +58,9 @@
             // 
             // buttonPub
             // 
-            this.buttonPub.Location = new System.Drawing.Point(429, 321);
+            this.buttonPub.Location = new System.Drawing.Point(380, 321);
             this.buttonPub.Name = "buttonPub";
-            this.buttonPub.Size = new System.Drawing.Size(75, 23);
+            this.buttonPub.Size = new System.Drawing.Size(124, 23);
             this.buttonPub.TabIndex = 2;
             this.buttonPub.Text = "新片发布";
             this.buttonPub.UseVisualStyleBackColor = true;
@@ -94,14 +95,24 @@
             this.dataMovieList.Size = new System.Drawing.Size(492, 252);
             this.dataMovieList.TabIndex = 5;
             this.dataMovieList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellClick);
-            //this.dataMovieList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellContentClick);
             this.dataMovieList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMovieList_CellContentDoubleClick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(84, 320);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "查看已买电影票";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MovieList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 356);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataMovieList);
             this.Controls.Add(this.textName);
             this.Controls.Add(this.buttonPub);
@@ -109,7 +120,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MovieList";
             this.Text = "MovieList";
-//            this.Load += new System.EventHandler(this.MovieList_Load);
+            this.Load += new System.EventHandler(this.MovieList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataMovieList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -124,5 +135,6 @@
         private System.Windows.Forms.TextBox textName;
         private System.Windows.Forms.ListBox listMovie;
         private System.Windows.Forms.DataGridView dataMovieList;
+        private System.Windows.Forms.Button button1;
     }
 }

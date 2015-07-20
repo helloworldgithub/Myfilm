@@ -35,6 +35,11 @@ namespace Myfilm
                 sql =  "select * from films";
             return dbHelper.GetDataSet(sql);
         }
+        public DataSet getUserMark()
+        {
+            string sql = string.Format("select userId, score from scores where filmId = '{0}'", this.id);
+            return dbHelper.GetDataSet(sql);
+        }
         public DataSet getSeats()
         {
             string sql = string.Format("select flag from seat where filmId = '{0}'", this.id);
@@ -47,16 +52,25 @@ namespace Myfilm
             SqlDataReader dr = dbHelper.GetDataReader(sql);
             if (dr.Read())
             {
-                this.name = dr["filmname"].ToString();
-                this.price = (float)dr["price"];
-                this.length = (float)dr["length"];
-                this.description = dr["description"].ToString();
-                this.director = (string)dr["director"];
-                this.hallNum = (int)dr["hall"];
-                this.startTime = (DateTime)dr["startTime"];
-                this.logoPath = (string)dr["logo"];
-                this.amount = (int)dr["amount"];
-                this.score = (float)dr["score"];
+                this.name = Convert.ToString(dr["filmname"]);
+                this.price = Convert.ToSingle(dr["price"]);
+                this.length = Convert.ToSingle(dr["length"]);
+                this.description = Convert.ToString(dr["description"]);
+                this.director = Convert.ToString(dr["director"]);
+                this.hallNum = Convert.ToInt32(dr["hall"]);
+                this.startTime = Convert.ToDateTime(dr["startTime"]);
+                this.logoPath = Convert.ToString(dr["logo"]);
+                this.amount = Convert.ToInt32(dr["amount"]);
+                if (dr["score"] != DBNull.Value)
+                {
+                    this.score = Convert.ToSingle(dr["score"]);
+                }
+                else
+                {
+                    this.score = 0;
+                }
+                dr.Close();
+               
             }
         }
     }

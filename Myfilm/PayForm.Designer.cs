@@ -44,6 +44,7 @@
             this.buttonpaymonye.TabIndex = 0;
             this.buttonpaymonye.Text = "立即订购";
             this.buttonpaymonye.UseVisualStyleBackColor = true;
+            this.buttonpaymonye.Click += new System.EventHandler(this.buttonpaymonye_Click);
             // 
             // buttonrecharge
             // 
@@ -53,6 +54,7 @@
             this.buttonrecharge.TabIndex = 1;
             this.buttonrecharge.Text = "立即充值";
             this.buttonrecharge.UseVisualStyleBackColor = true;
+            this.buttonrecharge.Click += new System.EventHandler(this.buttonrecharge_Click);
             // 
             // textBoxtotalprice
             // 
@@ -99,6 +101,7 @@
             this.Controls.Add(this.buttonpaymonye);
             this.Name = "PayForm";
             this.Text = "PayForm";
+            this.Load += new System.EventHandler(this.PayForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

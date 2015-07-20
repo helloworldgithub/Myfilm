@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxrecharge = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonok = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxrecharge
             // 
-            this.textBox1.Location = new System.Drawing.Point(251, 156);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 0;
+            this.textBoxrecharge.Location = new System.Drawing.Point(251, 156);
+            this.textBoxrecharge.Name = "textBoxrecharge";
+            this.textBoxrecharge.Size = new System.Drawing.Size(100, 21);
+            this.textBoxrecharge.TabIndex = 0;
             // 
             // label1
             // 
@@ -57,6 +57,7 @@
             this.buttonok.TabIndex = 2;
             this.buttonok.Text = "确定";
             this.buttonok.UseVisualStyleBackColor = true;
+            this.buttonok.Click += new System.EventHandler(this.buttonok_Click);
             // 
             // RechargeForm
             // 
@@ -65,9 +66,10 @@
             this.ClientSize = new System.Drawing.Size(741, 455);
             this.Controls.Add(this.buttonok);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxrecharge);
             this.Name = "RechargeForm";
             this.Text = "RechargeForm";
+            this.Load += new System.EventHandler(this.RechargeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -75,7 +77,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxrecharge;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonok;
     }

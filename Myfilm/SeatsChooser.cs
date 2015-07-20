@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace Myfilm
 {
+    
     public partial class SeatsChooser : Form
     {
+        private User user { get; set; }
         private int NUM_COLUMNS = 15;
         private int INTERVAL = 15;
         private int WIDTH = 30;
@@ -19,8 +21,10 @@ namespace Myfilm
         private bool[] choose;
 
         private Movie movie;
-        public SeatsChooser(Movie _movie)
+        public SeatsChooser(Movie _movie,User user)
+            
         {
+            this.user = user;
             InitializeComponent();
             this.movie = _movie;
             this.choose = new bool[movie.amount];
@@ -64,6 +68,7 @@ namespace Myfilm
         {
 
         }
+        //购买跳到payform中
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -75,6 +80,7 @@ namespace Myfilm
                     seats.Add(i);
                 }
             }
+            new PayForm(movie,user).Show();
         }
     }
 }

@@ -16,6 +16,13 @@ namespace Myfilm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+          /**  用来测试用的
+           * Movie movie = new Movie();
+            movie.name = "a";
+            movie.id = 7;
+            User user = new User();
+            user.username = "123";
+           * */
             Application.Run(new formLogin());
         }
     }

@@ -15,11 +15,14 @@ namespace Myfilm
     {
         //加载的时候就显示相应的信息
         private Movie detailMovie;
-        public MovieDetail(Movie movie)
+        private User user { get; set; }
+        private PictureBox[] picMark;
+        public MovieDetail(Movie movie,User user)
         {
+            
             InitializeComponent();
             detailMovie = movie;
-
+            this.user = user;
             detailMovie.getMovieById();
             textBoxfilmname.Text = detailMovie.name;
             textBoxdirector.Text = detailMovie.director;
@@ -28,18 +31,52 @@ namespace Myfilm
             textBoxprice.Text = detailMovie.price.ToString();
             dateTimePicker1.Value = detailMovie.startTime;
             picturePoster.Image = Image.FromFile(detailMovie.logoPath);
-            string sql=@"select * from comments where filmId='"+detailMovie.id+"'";
+            string sql = string.Format("select * from [comments] where filmId='{0}'", detailMovie.id);
             SqlDataReader dr = dbHelper.GetDataReader(sql);
-            //用两个if语句来显示评论，不能多显示，不知道其他办法
-            if(dr.Read())
-            {
+          
+            picMark[0] = pictureBox1;
+            picMark[1] = pictureBox1;
+            picMark[2] = pictureBox1;
+            picMark[3] = pictureBox1;
+            picMark[4] = pictureBox1;
 
-            }
-            if(dr.Read())
+            for (int i = 0; i < 5 ; i ++)
             {
-
+                picMark[i].Click += movieMark;
+                //picMark[i].MouseHover += movieOver;
             }
+
+            DataTable dt = this.detailMovie.getUserMark().Tables[0];
+            int sum_score = 0;
+            int count = dt.Rows.Count;
+            foreach (DataRow r in dt.Rows)
+            {
+                //sum_score += (int)(dt.Columns[0]);
+            }
+            double ave_score = 1.0 * sum_score / count;
+            for (int i = 0; i < 5; i++)
+            {
+                if (i < (int)ave_score)
+                    picMark[i].Image = Image.FromFile("full.png");
+                else
+                    picMark[i].Image = Image.FromFile("empty.png");
+            }
+            if (ave_score - (int)ave_score >= 0.5)
+                picMark[(int)ave_score].Image = Image.FromFile("empty.png");
+            else
+                picMark[(int)ave_score].Image = Image.FromFile("half.png");
         }
+
+        private void movieMark(object sender, EventArgs e)
+        {
+            int ind = (((PictureBox)sender).Left - picMark[0].Left) / (picMark[1].Left - picMark[0].Left);
+
+        }
+        /*
+        private void movieOver(object sender, EventArgs e)
+        {
+
+        }*/
 
         private void MovieDetail_Load(object sender, EventArgs e)
         {
@@ -48,7 +85,12 @@ namespace Myfilm
 
         private void buttonbuyticket_Click(object sender, EventArgs e)
         {
-            new SeatsChooser(detailMovie).Show();
+            new SeatsChooser(detailMovie,user).Show();
+        }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+            new comment(user, detailMovie).Show();
         }
     }
 }

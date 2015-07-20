@@ -80,7 +80,7 @@ namespace Myfilm
             {
                 MessageBox.Show("登录成功！");
                 this.Hide();
-                new MovieList(comboType.SelectedIndex).Show();
+                new MovieList(comboType.SelectedIndex,user).Show();
                 /*
                 Movie movie = new Movie();
                 movie.id = 1;
