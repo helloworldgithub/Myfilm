@@ -329,6 +329,7 @@
             this.groupBox1.Size = new System.Drawing.Size(186, 52);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Leave += new System.EventHandler(this.groupBox1_Leave);
             // 
             // pictureBox1
             // 

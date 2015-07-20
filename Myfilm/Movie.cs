@@ -20,7 +20,7 @@ namespace Myfilm
         public string logoPath { get; set; }
         public float price { get; set; }
         public int amount { get; set; }
-        public float score { get; set; }
+        public double score { get; set; }
         public DataSet getMovieInfo()
         {
             string sql = @"select * from movie where name like '" + name + "'";
