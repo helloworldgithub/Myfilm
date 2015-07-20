@@ -301,6 +301,7 @@
             this.button.TabIndex = 33;
             this.button.Text = "编辑评论";
             this.button.UseVisualStyleBackColor = true;
+            this.button.Click += new System.EventHandler(this.button_Click);
             // 
             // buttonbuyticket
             // 
@@ -310,6 +311,7 @@
             this.buttonbuyticket.TabIndex = 34;
             this.buttonbuyticket.Text = "购票选座";
             this.buttonbuyticket.UseVisualStyleBackColor = true;
+            this.buttonbuyticket.Click += new System.EventHandler(this.buttonbuyticket_Click);
             // 
             // MovieDetail
             // 
