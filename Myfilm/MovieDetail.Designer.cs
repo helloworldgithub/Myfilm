@@ -209,7 +209,7 @@
             this.button.Name = "button";
             this.button.Size = new System.Drawing.Size(75, 23);
             this.button.TabIndex = 33;
-            this.button.Text = "编辑评论";
+            this.button.Text = "发布评论";
             this.button.UseVisualStyleBackColor = true;
             this.button.Click += new System.EventHandler(this.button_Click);
             // 
@@ -291,6 +291,7 @@
             this.picturePoster.Location = new System.Drawing.Point(12, 12);
             this.picturePoster.Name = "picturePoster";
             this.picturePoster.Size = new System.Drawing.Size(309, 241);
+            this.picturePoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picturePoster.TabIndex = 23;
             this.picturePoster.TabStop = false;
             // 

@@ -29,7 +29,7 @@ namespace Myfilm
         }
         public void getUserByName()
         {
-            string sql = string.Format("select * from [user] where username = {0}", this.username);
+            string sql = string.Format("select * from [user] where username = '{0}'", this.username);
             SqlDataReader dr = dbHelper.GetDataReader(sql);
             if (dr.Read())
             {

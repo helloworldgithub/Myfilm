@@ -82,7 +82,7 @@ namespace Myfilm
                 user.getUserByName();
                 MessageBox.Show("登录成功！");
                 this.Hide();
-                new MovieList(user).Show();
+                new MovieList(this, user).Show();
             }
             else
             {

@@ -15,8 +15,10 @@ namespace Myfilm
         public User user { get; set; }
         const int ADMIN = 1;
         const int USER = 0;
-        public MovieList(User user)
+        private formLogin fl;
+        public MovieList(formLogin fl, User user)
         {
+            this.fl = fl;
             this.user = user;
             InitializeComponent();
             if (user.type == ADMIN)
@@ -82,6 +84,17 @@ namespace Myfilm
         private void button1_Click(object sender, EventArgs e)
         {
             new boughtForm(user).Show();
+        }
+
+        private void MovieList_Activated(object sender, EventArgs e)
+        {
+            dataMovieList.DataSource = Movie.getMovies(-1);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fl.Show();
+            this.Close();
         }
     }
 }

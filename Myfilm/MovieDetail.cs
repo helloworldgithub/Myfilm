@@ -31,7 +31,16 @@ namespace Myfilm
             textBoxlength.Text = detailMovie.length.ToString();
             textBoxprice.Text = detailMovie.price.ToString();
             textTime.Text = detailMovie.startTime.ToString();
-            picturePoster.Image = Image.FromFile(detailMovie.logoPath);
+            try
+            {
+                picturePoster.Image = Image.FromFile(detailMovie.logoPath);
+            }
+            catch (Exception)
+            {
+
+                picturePoster.Image = null;
+            }
+
             comments = new Comment();
             comments.getFilmComments(detailMovie.id);
             labelRemark1.Text = Convert.ToString(comments.comments[0]);
@@ -64,6 +73,16 @@ namespace Myfilm
                 this.detailMovie.score = 1.0 * sum_score / count;
 
             clearMark();
+
+            if (user.type == 0)
+            {
+                
+            }
+            else
+            {
+                this.button.Visible = false;
+                this.buttonbuyticket.Visible = false;
+            }
         }
         private void movieMark(object sender, EventArgs e)
         {
@@ -168,6 +187,11 @@ namespace Myfilm
             comments.getFilmComments(detailMovie.id);
             labelRemark1.Text = Convert.ToString(comments.comments[0]);
             labelRemark2.Text = Convert.ToString(comments.comments[1]);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

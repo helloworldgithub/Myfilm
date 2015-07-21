@@ -149,6 +149,7 @@
             this.pictureBoxlogo.Location = new System.Drawing.Point(290, 9);
             this.pictureBoxlogo.Name = "pictureBoxlogo";
             this.pictureBoxlogo.Size = new System.Drawing.Size(219, 200);
+            this.pictureBoxlogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxlogo.TabIndex = 12;
             this.pictureBoxlogo.TabStop = false;
             // 

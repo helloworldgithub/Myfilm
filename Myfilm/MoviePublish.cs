@@ -33,19 +33,18 @@ namespace Myfilm
                
                 movie.description = richTextBoxdescription.Text.Trim();
                 movie.length = Convert.ToSingle(textBoxlength.Text.Trim());
-                MessageBox.Show(movie.length.ToString());
                 movie.hallNum = Convert.ToInt32(textBoxhall.Text.Trim());
                 movie.startTime = dateTimePickerstarttime.Value;
                 movie.price = Convert.ToSingle(textBoxprice.Text.Trim());
                 movie.amount = int.Parse(textBoxamount.Text.Trim());
-                movie.score = Convert.ToSingle(textBoxscore.Text.Trim());
+                //movie.score = Convert.ToSingle(textBoxscore.Text.Trim());
                 movie.director = Convert.ToString(textBoxdirector.Text.Trim());
             }
             catch(Exception e)
             {
                 Console.WriteLine("Unable to convert '{0}' to a Single.", e);
-            }
-            
+                throw;
+            }            
 
         }
 
@@ -85,12 +84,13 @@ namespace Myfilm
             if(dbHelper.ExecuteCommand(sql)>0)
             {
                 dbHelper.Conn.Close();
-                MessageBox.Show("publish success");
+                MessageBox.Show("发布成功！");
+                this.Close();
             }
             else
             {
                 dbHelper.Conn.Close();
-                MessageBox.Show("publish fail");
+                MessageBox.Show("发布失败！");
             }
 		}
     }

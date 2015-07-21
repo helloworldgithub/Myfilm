@@ -34,6 +34,7 @@
             this.textName = new System.Windows.Forms.TextBox();
             this.dataMovieList = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataMovieList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,11 +108,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(385, 321);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "登出";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MovieList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 356);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataMovieList);
             this.Controls.Add(this.textName);
@@ -120,6 +132,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MovieList";
             this.Text = "MovieList";
+            this.Activated += new System.EventHandler(this.MovieList_Activated);
             this.Load += new System.EventHandler(this.MovieList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataMovieList)).EndInit();
             this.ResumeLayout(false);
@@ -136,5 +149,6 @@
         private System.Windows.Forms.ListBox listMovie;
         private System.Windows.Forms.DataGridView dataMovieList;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
